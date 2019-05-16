@@ -25,7 +25,7 @@ namespace vue_dotnet2._2
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "clientapp/dist";
             });
         }
 
@@ -53,7 +53,7 @@ namespace vue_dotnet2._2
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "clientapp";
 
                 if (env.IsDevelopment())
                 {
