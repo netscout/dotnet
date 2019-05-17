@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VueCliMiddleware;
 
 namespace vue_dotnet2._2
 {
@@ -25,7 +24,7 @@ namespace vue_dotnet2._2
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "clientapp/dist";
+                configuration.RootPath = "ClientApp/dist";
             });
         }
 
@@ -53,11 +52,11 @@ namespace vue_dotnet2._2
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "clientapp";
+                spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseVueCli(npmScript: "serve");
+                    spa.UseReactDevelopmentServer(npmScript: "serve");
                 }
             });
         }
