@@ -14,12 +14,12 @@
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
 
-    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <!-- 배포시에 node모듈이 설치되고 webpack으로 패키징 되도록 함 -->
 
     <Exec Command="npm install" />
     <Exec Command="./node_modules/.bin/webpack" />
 
-    <!-- Include the newly-built files in the publish output -->
+    <!-- webpack으로 패키징된 결과를 배포하도록 설정 -->
     <ItemGroup>
 
       <DistFiles Include="wwwroot\dist\**" />
